@@ -74,9 +74,19 @@
     <Compile Include="AdminDashBoared.Designer.cs">
       <DependentUpon>AdminDashBoared.cs</DependentUpon>
     </Compile>
+    <Compile Include="BorrowBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowBook.Designer.cs">
+      <DependentUpon>BorrowBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessLogic\CatalogManager.cs" />
+    <Compile Include="BusinessLogic\CirculationManager.cs" />
     <Compile Include="Data\IBookRepository.cs" />
+    <Compile Include="Data\IMemberRepository.cs" />
     <Compile Include="Data\SqlBookRepository.cs" />
+    <Compile Include="Data\SqlCirculationRepository.cs" />
+    <Compile Include="Data\SqlMemberRepository.cs" />
     <Compile Include="ManageBooks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +100,8 @@
       <DependentUpon>ManageMembers.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BookResource.cs" />
+    <Compile Include="Models\BorrowTransaction.cs" />
+    <Compile Include="Data\ICirculationRepository.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="BusinessLogic\MemberManager.cs" />
     <Compile Include="Models\PhysicalBook.cs" />
@@ -127,6 +139,9 @@
     </Compile>
     <EmbeddedResource Include="AdminDashBoared.resx">
       <DependentUpon>AdminDashBoared.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BorrowBook.resx">
+      <DependentUpon>BorrowBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageBooks.resx">
       <DependentUpon>ManageBooks.cs</DependentUpon>

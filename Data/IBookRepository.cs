@@ -15,5 +15,7 @@ namespace Library_Management_System.Data
         int UpdateBook(PhysicalBook book);
         int DeleteBook(int bookId);
         Dictionary<string, int> GetBookCountsByType();
+        PhysicalBook GetBookById(int id);
+
     }
 }

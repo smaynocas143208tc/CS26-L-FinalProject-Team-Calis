@@ -1,4 +1,6 @@
-﻿using Library_Management_System.Models;
+﻿using Library_Management_System.BusinessLogic;
+using Library_Management_System.Data;
+using Library_Management_System.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,8 +67,8 @@ namespace Library_Management_System
         private void button1_Click(object sender, EventArgs e)
         {
 
-            MemberManager manager = new MemberManager();
-            Member loggedInUser = manager.verifyLogin(txtUsername.Text, txtPassword.Text);
+            MemberManager manager = new MemberManager(new SqlMemberRepository());
+            Member loggedInUser = manager.VerifyLogin(txtUsername.Text, txtPassword.Text);
 
             if (loggedInUser != null)
             {

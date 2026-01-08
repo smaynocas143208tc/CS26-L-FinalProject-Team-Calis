@@ -130,6 +130,16 @@ namespace Library_Management_System
         {
             AbrirFormEnPanel(new ManageBooks());
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new BorrowBook());
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

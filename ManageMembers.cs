@@ -1,4 +1,6 @@
-﻿using Library_Management_System.Models;
+﻿using Library_Management_System.BusinessLogic;
+using Library_Management_System.Data;
+using Library_Management_System.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +18,7 @@ namespace Library_Management_System
     public partial class ManageMembers : Form
     {
 
-       private MemberManager manager = new MemberManager();
+        private MemberManager memberManager = new MemberManager(new SqlMemberRepository());
 
         public ManageMembers()
         {
@@ -38,7 +40,7 @@ namespace Library_Management_System
 
                 };
 
-                manager.registerMember(m, txtPass.Text);
+                memberManager.RegisterMember(m, txtPass.Text);
                 MessageBox.Show("Registration Successful!");
                 
                 LoadMemberData();
@@ -59,7 +61,7 @@ namespace Library_Management_System
             try
             {
                 // Ask the manager for the table
-                DataTable dt = manager.GetRegisteredMembers();
+                DataTable dt = memberManager.GetRegisteredMembers();
 
                 // Show it in the grid
                 dgvMember.DataSource = dt;
@@ -96,7 +98,7 @@ namespace Library_Management_System
             if (int.TryParse(txtSearchID.Text, out int id))
             {
                 // Call the manager method
-                Member m = manager.GetMemberByID(id);
+                Member m = memberManager.GetMemberByID(id);
 
                 if (m != null)
                 {
@@ -151,7 +153,7 @@ namespace Library_Management_System
                 string hashedPass = BCrypt.Net.BCrypt.HashPassword(txtPass.Text);
 
                 // 4. Send to Manager
-                manager.UpdateMember(updatedMember, hashedPass);
+                memberManager.UpdateMember(updatedMember, hashedPass);
 
                 MessageBox.Show("Member and Password updated successfully!");
                 LoadMemberData();
@@ -184,7 +186,7 @@ namespace Library_Management_System
                     int id = int.Parse(txtMemberID.Text);
 
                     // 3. Call the manager to delete
-                    manager.RemoveMember(id);
+                    memberManager.RemoveMember(id);
 
                     MessageBox.Show("Member removed successfully.");
 
@@ -219,13 +221,12 @@ namespace Library_Management_System
 
 
 
-
         private void LoadMemberData()
         {
             try
             {
                 // 1. Get the data from the manager class as a DataTable
-                DataTable dt = manager.GetRegisteredMembers();
+                DataTable dt = memberManager.GetRegisteredMembers();
 
                 // 2. Point your DataGridView to that data
                 dgvMember.DataSource = dt;
@@ -246,7 +247,7 @@ namespace Library_Management_System
 
         private void RefreshID()
         {
-            txtMemberID.Text = manager.GetNextMemberID();
+            txtMemberID.Text = memberManager.GetNextMemberID();
         }
 
         private void ClearFields()

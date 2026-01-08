@@ -213,7 +213,32 @@ namespace Library_Management_System.Data
 
 
 
+        public PhysicalBook GetBookById(int bookId)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MyDbConn"].ConnectionString))
+            {
+                // Querying for ID, Title, Status, and Type as requested
+                string query = "SELECT BookID, Title, Status, ResourceType FROM Books WHERE BookID = @id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", bookId);
 
+                conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new PhysicalBook
+                        {
+                            BookId = (int)reader["BookID"],
+                            BookTitle = reader["Title"].ToString(),
+                            Status = reader["Status"].ToString(),
+                            ResourceType = reader["ResourceType"].ToString()
+                        };
+                    }
+                }
+            }
+            return null;
+        }
 
 
 

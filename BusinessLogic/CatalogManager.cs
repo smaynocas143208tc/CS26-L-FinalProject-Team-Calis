@@ -55,7 +55,10 @@ namespace Library_Management_System.BusinessLogic
         }
 
 
-
+        public PhysicalBook GetBookDetails(int id)
+        {
+            return _repository.GetBookById(id);
+        }
 
 
 

@@ -1,4 +1,6 @@
 ﻿using BCrypt.Net;
+using Library_Management_System.Data;
+using Library_Management_System.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -12,243 +14,90 @@ using System.Xml.Linq;
 
 
 
-namespace Library_Management_System.Models
+namespace Library_Management_System.BusinessLogic 
 {
     public class MemberManager
     {
-        private string connString = ConfigurationManager.ConnectionStrings["MyDbConn"].ConnectionString;
+        private readonly IMemberRepository _memberRepository;
 
-        // +RegisterMember()
-        public void registerMember(Member member, string plainPassword)
+
+        public MemberManager(IMemberRepository memberRepository)
+        {
+            _memberRepository = memberRepository;
+        }
+
+
+        public void RegisterMember(Member member, string plainPassword)
         {
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(plainPassword);
 
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                string query = "INSERT INTO Members (UserName, PasswordHash, UserRole, Name, Address, Email, Phone) VALUES (@uname, @pass, @urole, @name, @address, @email, @phone)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@uname", member.UserName);
-                cmd.Parameters.AddWithValue("@urole", member.UserRole);
-                cmd.Parameters.AddWithValue("@pass", hashedPassword);
-                cmd.Parameters.AddWithValue("@name", member.Name);
-                cmd.Parameters.AddWithValue("@address", member.Address);
-                cmd.Parameters.AddWithValue("@email", member.Email);
-                cmd.Parameters.AddWithValue("@phone", member.Phone);
-
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
+  
+            _memberRepository.AddMember(member, hashedPassword);
         }
 
-
-
-        // Role-Based Login Verification
-        public Member verifyLogin(string username, string plainPassword)
+ 
+        public Member VerifyLogin(string username, string plainPassword)
         {
-            using (SqlConnection conn = new SqlConnection(connString))
+ 
+            Member member = _memberRepository.GetMemberByUsername(username);
+
+            if (member != null)
             {
-                string query = "SELECT MemberID, UserName, UserRole, PasswordHash " +
-                               "FROM Members " +
-                               "WHERE UserName = @user COLLATE Latin1_General_BIN";
+                bool isPasswordValid = BCrypt.Net.BCrypt.Verify(plainPassword, member.PasswordHash);
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@user", username);
-
-                conn.Open();
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                if (isPasswordValid)
                 {
-                    if (reader.Read())
-                    {
-                        string storedHash = reader["PasswordHash"].ToString();
-                        if (BCrypt.Net.BCrypt.Verify(plainPassword, storedHash)) 
-                        {
-                            return new Member
-                            {
-                                MemberID = (int)reader["MemberID"],
-                                UserName = reader["UserName"].ToString(),
-                                UserRole = reader["UserRole"].ToString()
-                            };
-                        }
-                    }
+                    return member; 
                 }
             }
-            return null;
+            return null; 
         }
 
-
-
-        // +GetRegisteredMembers()
+ 
         public DataTable GetRegisteredMembers()
         {
-            DataTable dt = new DataTable();
-            string query = "SELECT MemberID, Name, Username, Address, Email, Phone, UserRole  FROM Members";
-
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
-                {
-                    try
-                    {
-                        adapter.Fill(dt);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("Database error: " + ex.Message);
-                    }
-                }
-            }
-            return dt;
+            return _memberRepository.GetAllMembers();
         }
 
-
-
-        // +GetNextMemberID()
+ 
         public string GetNextMemberID()
         {
-
-            string query = "SELECT IDENT_CURRENT('Members') + 1";
-
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                try
-                {
-                    conn.Open();
-                    object result = cmd.ExecuteScalar();
-                    return result != null ? result.ToString() : "1";
-                }
-                catch
-                {
-                    return "1";
-                }
-            }
+            return _memberRepository.GetNextMemberID();
         }
 
 
-
-        // +GetMemberByID()
-        public Member GetMemberByID(int id)
+        public Member VerifyMember(int id)
         {
-
-            string query = "SELECT * FROM Members WHERE MemberID = @ID";
-
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ID", id); // Use parameters to prevent SQL injection
-
-                try
-                {
-                    conn.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
-                    {
-                        // Create a member object and fill it with data from the database
-                        return new Member
-                        {
-                            MemberID = Convert.ToInt32(reader["MemberID"]),
-                            UserName = reader["UserName"].ToString(),
-                            Name = reader["Name"].ToString(),
-                            Address = reader["Address"].ToString(),
-                            Email = reader["Email"].ToString(),
-                            Phone = reader["Phone"].ToString(), // Stored as string to avoid the Int32 error
-                            UserRole = reader["UserRole"].ToString()
-                        };
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Search Error: " + ex.Message);
-                }
-            }
-            return null; // Return null if no member is found
+            return _memberRepository.GetMemberByID(id);
         }
 
 
-
-        // +UpdateMember()
-        public void UpdateMember(Member m, string newHashedPassword)
+        public void UpdateMember(Member member, string newPlainPassword)
         {
-            // We add Password = @Pass to the SET clause
-            string query = @"UPDATE Members 
-                     SET UserName = @User, 
-                         Name = @Name, 
-                         Address = @Addr, 
-                         Email = @Email, 
-                         Phone = @Phone, 
-                         UserRole = @Role,
-                         PasswordHash = @Pass 
-                     WHERE MemberID = @ID";
-
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                cmd.Parameters.AddWithValue("@User", m.UserName);
-                cmd.Parameters.AddWithValue("@Name", m.Name);
-                cmd.Parameters.AddWithValue("@Addr", m.Address);
-                cmd.Parameters.AddWithValue("@Email", m.Email);
-                cmd.Parameters.AddWithValue("@Phone", m.Phone);
-                cmd.Parameters.AddWithValue("@Role", m.UserRole);
-                cmd.Parameters.AddWithValue("@Pass", newHashedPassword);
-                cmd.Parameters.AddWithValue("@ID", m.MemberID);
-
-                try
-                {
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Update Error: " + ex.Message);
-                }
-            }
+            string newHashedPassword = BCrypt.Net.BCrypt.HashPassword(newPlainPassword);
+            _memberRepository.UpdateMember(member, newHashedPassword);
         }
 
 
-        // +RemoveMember()
         public void RemoveMember(int id)
         {
-            string query = "DELETE FROM Members WHERE MemberID = @ID";
-
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ID", id);
-
-                try
-                {
-                    conn.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    if (rowsAffected == 0)
-                    {
-                        throw new Exception("Member not found or already deleted.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Delete Error: " + ex.Message);
-                }
-            }
+            _memberRepository.RemoveMember(id);
         }
 
 
 
+        public Member GetMemberByID(int id)
+        {
+            return _memberRepository.GetMemberByID(id);
+        }
 
 
 
-
-
-
-
-
+        
 
 
 
 
 
     }
-
 }
