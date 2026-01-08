@@ -111,15 +111,10 @@ namespace Library_Management_System
 
             if (result == DialogResult.Yes)
             {
-                // 2. Clear any session data (If you created a UserSession class)
-                // UserSession.Clear(); 
 
-                // 3. Show the Login Form
-                // Assuming your login form is named 'LoginForm'
                 LogIn login = new LogIn();
                 login.Show();
 
-                // 4. Close the current dashboard
                 this.Close();
 
             }
@@ -127,7 +122,13 @@ namespace Library_Management_System
 
         private void button7_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new ManageMembers());    
+            AbrirFormEnPanel(new ManageMembers());
+
+        }
+
+        private void btnManageBook_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new ManageBooks());
         }
     }
 

@@ -16,7 +16,7 @@ namespace Library_Management_System
     public partial class ManageMembers : Form
     {
 
-        MemberManager manager = new MemberManager();
+       private MemberManager manager = new MemberManager();
 
         public ManageMembers()
         {

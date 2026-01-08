@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\CS26-L-FinalProject-Team-Calise\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|C:\\CS26-L-FinalProject-Team-Calise\\admindashboared.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:admindashboared.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|C:\\CS26-L-FinalProject-Team-Calise\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|C:\\CS26-L-FinalProject-Team-Calise\\admindashboared.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\managebooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:managebooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\admindashboared.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:admindashboared.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|C:\\CS26-L-FinalProject-Team-Calise\\managemembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:managemembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|C:\\CS26-L-FinalProject-Team-Calise\\member\\membermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:member\\membermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\managemembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:managemembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|C:\\CS26-L-FinalProject-Team-Calise\\admindashboared.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:admindashboared.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,58 +34,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ManageMembers.cs",
-              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\ManageMembers.cs",
-              "RelativeDocumentMoniker": "ManageMembers.cs",
-              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\ManageMembers.cs",
-              "RelativeToolTip": "ManageMembers.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOUAAAA6AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ManageBooks.cs [Design]",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\ManageBooks.cs",
+              "RelativeDocumentMoniker": "ManageBooks.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\ManageBooks.cs [Design]",
+              "RelativeToolTip": "ManageBooks.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T14:52:23.418Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MemberManager.cs",
-              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Member\\MemberManager.cs",
-              "RelativeDocumentMoniker": "Member\\MemberManager.cs",
-              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Member\\MemberManager.cs",
-              "RelativeToolTip": "Member\\MemberManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T18:54:07.475Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ManageMembers.cs [Design]",
-              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\ManageMembers.cs",
-              "RelativeDocumentMoniker": "ManageMembers.cs",
-              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\ManageMembers.cs [Design]",
-              "RelativeToolTip": "ManageMembers.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T15:02:49.029Z",
+              "WhenOpened": "2026-01-08T02:17:24.146Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "LogIn.cs [Design]",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\LogIn.cs",
+              "RelativeDocumentMoniker": "LogIn.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\LogIn.cs [Design]",
+              "RelativeToolTip": "LogIn.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-07T19:11:31.138Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AdminDashBoared.cs",
               "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\AdminDashBoared.cs",
               "RelativeDocumentMoniker": "AdminDashBoared.cs",
               "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\AdminDashBoared.cs",
               "RelativeToolTip": "AdminDashBoared.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwGwAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-04T05:10:28.45Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AdminDashBoared.cs [Design]",
               "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\AdminDashBoared.cs",
               "RelativeDocumentMoniker": "AdminDashBoared.cs",

@@ -74,14 +74,25 @@
     <Compile Include="AdminDashBoared.Designer.cs">
       <DependentUpon>AdminDashBoared.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessLogic\CatalogManager.cs" />
+    <Compile Include="Data\IBookRepository.cs" />
+    <Compile Include="Data\SqlBookRepository.cs" />
+    <Compile Include="ManageBooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageBooks.Designer.cs">
+      <DependentUpon>ManageBooks.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageMembers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManageMembers.Designer.cs">
       <DependentUpon>ManageMembers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Member\Member.cs" />
-    <Compile Include="Member\MemberManager.cs" />
+    <Compile Include="Models\BookResource.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="BusinessLogic\MemberManager.cs" />
+    <Compile Include="Models\PhysicalBook.cs" />
     <Compile Include="SearchBooks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +127,9 @@
     </Compile>
     <EmbeddedResource Include="AdminDashBoared.resx">
       <DependentUpon>AdminDashBoared.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageBooks.resx">
+      <DependentUpon>ManageBooks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageMembers.resx">
       <DependentUpon>ManageMembers.cs</DependentUpon>
@@ -219,5 +233,6 @@
   <ItemGroup>
     <None Include="Resources\magnifying-glass %282%29.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
