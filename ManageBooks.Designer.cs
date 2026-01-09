@@ -603,7 +603,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManageBooks";
-            this.Text = "ManageMembers";
+            this.Text = "ManageBooks";
             this.Load += new System.EventHandler(this.ManageBooks_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

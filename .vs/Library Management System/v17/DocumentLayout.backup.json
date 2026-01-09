@@ -3,36 +3,28 @@
   "WorkspaceRootPath": "C:\\CS26-L-FinalProject-Team-Calise\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\borrowbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:borrowbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\businesslogic\\catalogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:businesslogic\\catalogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\businesslogic\\membermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:businesslogic\\membermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\businesslogic\\circulationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:businesslogic\\circulationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\borrowbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:borrowbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\data\\imemberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:data\\imemberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\data\\icirculationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:data\\icirculationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\data\\sqlmemberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:data\\sqlmemberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\data\\sqlcirculationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:data\\sqlcirculationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\data\\sqlbookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:data\\sqlbookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\businesslogic\\catalogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:businesslogic\\catalogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\data\\ibookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:data\\ibookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,8 +35,52 @@
       "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\data\\sqlcirculationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:data\\sqlcirculationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|C:\\CS26-L-FinalProject-Team-Calise\\models\\bookcopy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:models\\bookcopy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\models\\bookresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:models\\bookresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\models\\borrowtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:models\\borrowtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\models\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:models\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\models\\physicalbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:models\\physicalbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|C:\\CS26-L-FinalProject-Team-Calise\\admindashboared.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:admindashboared.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|C:\\CS26-L-FinalProject-Team-Calise\\borrowbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:borrowbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|C:\\CS26-L-FinalProject-Team-Calise\\borrowbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:borrowbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\managemembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:managemembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\managemembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:managemembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|C:\\CS26-L-FinalProject-Team-Calise\\returnbooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:returnbooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|c:\\cs26-l-finalproject-team-calise\\returnbooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86B73EB-1637-4D4D-91F2-CD5E60097602}|Library Management System.csproj|solutionrelative:returnbooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,62 +90,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "LogIn.cs [Design]",
-              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\LogIn.cs",
-              "RelativeDocumentMoniker": "LogIn.cs",
-              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\LogIn.cs [Design]",
-              "RelativeToolTip": "LogIn.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T13:18:38.069Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LogIn.cs",
-              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\LogIn.cs",
-              "RelativeDocumentMoniker": "LogIn.cs",
-              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\LogIn.cs",
-              "RelativeToolTip": "LogIn.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAuwEQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T13:14:46.794Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IBookRepository.cs",
-              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\IBookRepository.cs",
-              "RelativeDocumentMoniker": "Data\\IBookRepository.cs",
-              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\IBookRepository.cs",
-              "RelativeToolTip": "Data\\IBookRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T12:06:06.725Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "CatalogManager.cs",
               "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\BusinessLogic\\CatalogManager.cs",
               "RelativeDocumentMoniker": "BusinessLogic\\CatalogManager.cs",
               "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\BusinessLogic\\CatalogManager.cs",
               "RelativeToolTip": "BusinessLogic\\CatalogManager.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAowDoAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T12:05:10.431Z",
+              "WhenOpened": "2026-01-09T22:06:35.734Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
@@ -119,86 +117,238 @@
               "RelativeDocumentMoniker": "Data\\SqlBookRepository.cs",
               "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\SqlBookRepository.cs",
               "RelativeToolTip": "Data\\SqlBookRepository.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAwwPAAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAANgAAAAAAAAAAAAmwO4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T12:04:17.374Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SqlMemberRepository.cs",
-              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\SqlMemberRepository.cs",
-              "RelativeDocumentMoniker": "Data\\SqlMemberRepository.cs",
-              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\SqlMemberRepository.cs",
-              "RelativeToolTip": "Data\\SqlMemberRepository.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAIwJsAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T11:59:55.214Z",
+              "WhenOpened": "2026-01-09T22:05:01.267Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IMemberRepository.cs",
-              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\IMemberRepository.cs",
-              "RelativeDocumentMoniker": "Data\\IMemberRepository.cs",
-              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\IMemberRepository.cs",
-              "RelativeToolTip": "Data\\IMemberRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Title": "SqlMemberRepository.cs",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\SqlMemberRepository.cs",
+              "RelativeDocumentMoniker": "Data\\SqlMemberRepository.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\SqlMemberRepository.cs",
+              "RelativeToolTip": "Data\\SqlMemberRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T09:48:27.677Z",
+              "WhenOpened": "2026-01-09T22:02:16.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BookResource.cs",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Models\\BookResource.cs",
+              "RelativeDocumentMoniker": "Models\\BookResource.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Models\\BookResource.cs",
+              "RelativeToolTip": "Models\\BookResource.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T22:02:03.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BorrowTransaction.cs",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Models\\BorrowTransaction.cs",
+              "RelativeDocumentMoniker": "Models\\BorrowTransaction.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Models\\BorrowTransaction.cs",
+              "RelativeToolTip": "Models\\BorrowTransaction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T22:02:02.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Member.cs",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Models\\Member.cs",
+              "RelativeDocumentMoniker": "Models\\Member.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Models\\Member.cs",
+              "RelativeToolTip": "Models\\Member.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T22:02:00.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ManageMembers.cs [Design]",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\ManageMembers.cs",
+              "RelativeDocumentMoniker": "ManageMembers.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\ManageMembers.cs [Design]",
+              "RelativeToolTip": "ManageMembers.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T21:56:35.379Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ICirculationRepository.cs",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\ICirculationRepository.cs",
+              "RelativeDocumentMoniker": "Data\\ICirculationRepository.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\ICirculationRepository.cs",
+              "RelativeToolTip": "Data\\ICirculationRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T19:09:44.477Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MemberManager.cs",
-              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\BusinessLogic\\MemberManager.cs",
-              "RelativeDocumentMoniker": "BusinessLogic\\MemberManager.cs",
-              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\BusinessLogic\\MemberManager.cs",
-              "RelativeToolTip": "BusinessLogic\\MemberManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAA==",
+              "Title": "CirculationManager.cs",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\BusinessLogic\\CirculationManager.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\CirculationManager.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\BusinessLogic\\CirculationManager.cs",
+              "RelativeToolTip": "BusinessLogic\\CirculationManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T09:29:42.565Z",
+              "WhenOpened": "2026-01-09T17:13:20.94Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 12,
+              "Title": "PhysicalBook.cs",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Models\\PhysicalBook.cs",
+              "RelativeDocumentMoniker": "Models\\PhysicalBook.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Models\\PhysicalBook.cs",
+              "RelativeToolTip": "Models\\PhysicalBook.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T17:12:19.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LogIn.cs [Design]",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\LogIn.cs",
+              "RelativeDocumentMoniker": "LogIn.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\LogIn.cs [Design]",
+              "RelativeToolTip": "LogIn.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T11:21:20.394Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SqlCirculationRepository.cs",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\SqlCirculationRepository.cs",
+              "RelativeDocumentMoniker": "Data\\SqlCirculationRepository.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\SqlCirculationRepository.cs",
+              "RelativeToolTip": "Data\\SqlCirculationRepository.cs",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAwwBsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T10:27:58.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LogIn.cs",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\LogIn.cs",
+              "RelativeDocumentMoniker": "LogIn.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\LogIn.cs",
+              "RelativeToolTip": "LogIn.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAxwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T22:03:48.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ManageMembers.cs",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\ManageMembers.cs",
+              "RelativeDocumentMoniker": "ManageMembers.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\ManageMembers.cs",
+              "RelativeToolTip": "ManageMembers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T21:56:37.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "BorrowBook.cs",
               "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\BorrowBook.cs",
               "RelativeDocumentMoniker": "BorrowBook.cs",
               "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\BorrowBook.cs",
               "RelativeToolTip": "BorrowBook.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALsAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAFkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T08:55:40.2Z",
+              "WhenOpened": "2026-01-09T10:00:24.378Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
+              "Title": "BookCopy.cs",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Models\\BookCopy.cs",
+              "RelativeDocumentMoniker": "Models\\BookCopy.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Models\\BookCopy.cs",
+              "RelativeToolTip": "Models\\BookCopy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T09:51:18.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "BorrowBook.cs [Design]",
               "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\BorrowBook.cs",
               "RelativeDocumentMoniker": "BorrowBook.cs",
               "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\BorrowBook.cs [Design]",
               "RelativeToolTip": "BorrowBook.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T06:58:33.632Z",
+              "WhenOpened": "2026-01-09T09:59:48.888Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SqlCirculationRepository.cs",
-              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\SqlCirculationRepository.cs",
-              "RelativeDocumentMoniker": "Data\\SqlCirculationRepository.cs",
-              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\Data\\SqlCirculationRepository.cs",
-              "RelativeToolTip": "Data\\SqlCirculationRepository.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAgwDoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "AdminDashBoared.cs [Design]",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\AdminDashBoared.cs",
+              "RelativeDocumentMoniker": "AdminDashBoared.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\AdminDashBoared.cs [Design]",
+              "RelativeToolTip": "AdminDashBoared.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T08:14:51.452Z",
+              "WhenOpened": "2026-01-09T05:59:07.419Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ReturnBooks.cs [Design]",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\ReturnBooks.cs",
+              "RelativeDocumentMoniker": "ReturnBooks.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\ReturnBooks.cs [Design]",
+              "RelativeToolTip": "ReturnBooks.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T06:00:28.768Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ReturnBooks.cs",
+              "DocumentMoniker": "C:\\CS26-L-FinalProject-Team-Calise\\ReturnBooks.cs",
+              "RelativeDocumentMoniker": "ReturnBooks.cs",
+              "ToolTip": "C:\\CS26-L-FinalProject-Team-Calise\\ReturnBooks.cs",
+              "RelativeToolTip": "ReturnBooks.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAwwJkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T18:14:51.169Z",
               "EditorCaption": ""
             }
           ]

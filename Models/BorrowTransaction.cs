@@ -13,7 +13,8 @@ namespace Library_Management_System.Models
         public int MemberId { get; set; }
 
         public int BookId { get; set; }
- 
+        public string CopyId { get; set; }
+
         public DateTime BorrowDate { get; set; }
  
         public DateTime DueDate { get; set; }

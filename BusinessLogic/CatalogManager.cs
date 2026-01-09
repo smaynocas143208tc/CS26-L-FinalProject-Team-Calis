@@ -12,7 +12,7 @@ namespace Library_Management_System.BusinessLogic
     {
         private readonly IBookRepository _repository;
 
-        // Dependency Injection: Passing the repository in
+        // Dependency Injection 
         public CatalogManager(IBookRepository repository)
         {
             _repository = repository;
@@ -43,11 +43,6 @@ namespace Library_Management_System.BusinessLogic
         }
 
 
-        public int RemoveBook(int bookId)
-        {
-            return _repository.DeleteBook(bookId);
-        }
-
 
         public Dictionary<string, int> GetBookCountsByType()
         {
@@ -61,7 +56,11 @@ namespace Library_Management_System.BusinessLogic
         }
 
 
+        public int DeleteBook(int bookId)
+        {
 
+            return _repository.DeleteBook(bookId);
+        }
 
 
 

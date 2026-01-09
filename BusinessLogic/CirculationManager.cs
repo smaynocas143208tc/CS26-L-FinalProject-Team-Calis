@@ -17,14 +17,16 @@ namespace Library_Management_System.BusinessLogic
         }
 
        
-        public bool BorrowBook(int memberId, int bookId, DateTime dueDate)
+        public bool BorrowBook(int memberId, int bookId, string copyId, DateTime dueDate)
         {
             var transaction = new BorrowTransaction
             {
                 MemberId = memberId,
                 BookId = bookId,
+                CopyId = copyId, 
                 BorrowDate = DateTime.Now,
                 DueDate = dueDate
+
             };
 
       

@@ -67,7 +67,7 @@ namespace Library_Management_System
         private void button1_Click(object sender, EventArgs e)
         {
 
-            MemberManager manager = new MemberManager(new SqlMemberRepository());
+            /*MemberManager manager = new MemberManager(new SqlMemberRepository());
             Member loggedInUser = manager.VerifyLogin(txtUsername.Text, txtPassword.Text);
 
             if (loggedInUser != null)
@@ -91,16 +91,16 @@ namespace Library_Management_System
             else
             {
                 MessageBox.Show("Invalid Credentials.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            }*/
 
 
 
 
-                /* AdminDashBoared admin = new AdminDashBoared();
+                 AdminDashBoared admin = new AdminDashBoared();
 
                 this.Hide();
 
-                admin.Show();*/
+                admin.Show();
             }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Library_Management_System.Data
 {
@@ -23,8 +26,10 @@ namespace Library_Management_System.Data
             {
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
-                    string query = "INSERT INTO Books (BookID, Title, Author, ISBN, Pages, Status, ResourceType, Published) " +
-                                   "VALUES (@id, @title, @author, @isbn, @pages, @status, @type, @published)";
+                    conn.Open();
+
+                    string query = "INSERT INTO Books (BookID, Title, Author, ISBN, Pages, ResourceType, Published) " +
+                                   "VALUES (@id, @title, @author, @isbn, @pages, @type, @published)";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@id", book.BookId);
@@ -32,12 +37,20 @@ namespace Library_Management_System.Data
                     cmd.Parameters.AddWithValue("@author", book.Author);
                     cmd.Parameters.AddWithValue("@isbn", book.ISBN);
                     cmd.Parameters.AddWithValue("@pages", book.NumberOfPages);
-                    cmd.Parameters.AddWithValue("@status", book.Status);
                     cmd.Parameters.AddWithValue("@type", book.ResourceType);
                     cmd.Parameters.AddWithValue("@published", book.PublishedDate);
 
-                    conn.Open();
                     cmd.ExecuteNonQuery();
+
+                    string copyQuery = "INSERT INTO BookCopies (CopyID, BookID, Status, Condition) " +
+                                       "VALUES (@cid, @bid, 'Available', 'Good')";
+
+                    SqlCommand copyCmd = new SqlCommand(copyQuery, conn);
+                    copyCmd.Parameters.AddWithValue("@cid", book.ISBN + "-A");
+                    copyCmd.Parameters.AddWithValue("@bid", book.BookId);
+
+                    copyCmd.ExecuteNonQuery();
+
                     return true;
                 }
             }
@@ -51,9 +64,10 @@ namespace Library_Management_System.Data
                 {
                     MessageBox.Show("Database error: " + ex.Message);
                 }
-                return false; 
+                return false;
             }
         }
+
 
 
 
@@ -62,7 +76,6 @@ namespace Library_Management_System.Data
         {
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                // This query finds the highest ID; if table is empty, it returns 0
                 string query = "SELECT ISNULL(MAX(BookID), 0) + 1 FROM Books";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
@@ -78,8 +91,12 @@ namespace Library_Management_System.Data
             List<PhysicalBook> bookList = new List<PhysicalBook>();
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                // This query checks all three columns for a match
-                string query = "SELECT * FROM Books WHERE Title LIKE @search OR Author LIKE @search OR ISBN LIKE @search";
+
+                string query = @"SELECT b.BookID, b.Title, b.Author, b.ISBN, b.Published, b.Pages, b.ResourceType, c.Status 
+                         FROM Books b 
+                         INNER JOIN BookCopies c ON b.BookID = c.BookID 
+                         WHERE b.IsDeleted = 0 
+                         AND (b.Title LIKE @search OR b.Author LIKE @search OR b.ISBN LIKE @search)";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@search", "%" + searchText + "%"); 
@@ -97,8 +114,8 @@ namespace Library_Management_System.Data
                             ISBN = reader["ISBN"].ToString(), 
                             PublishedDate = reader["Published"].ToString(),
                             NumberOfPages = (int)reader["Pages"],
-                            Status = reader["Status"].ToString(),
-                            ResourceType = reader["ResourceType"].ToString()
+                            ResourceType = reader["ResourceType"].ToString(),
+                            Status = reader["Status"].ToString() 
                         });
                     }
                 }
@@ -106,35 +123,46 @@ namespace Library_Management_System.Data
             return bookList;
         }
 
+          
+
 
 
         // Update existing book details
-        public int UpdateBook(PhysicalBook book) 
+        public int UpdateBook(PhysicalBook book)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
-                    string query = @"UPDATE Books SET 
-                    Title = @title, Author = @author, ISBN = @isbn, 
-                    Pages = @pages, Status = @status, ResourceType = @type, Published = @published 
-                 WHERE BookID = @id AND (
-                    Title <> @title OR Author <> @author OR ISBN <> @isbn OR 
-                    Pages <> @pages OR Status <> @status OR ResourceType <> @type OR Published <> @published
-                 )";
-
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@id", book.BookId);
-                    cmd.Parameters.AddWithValue("@title", book.BookTitle);
-                    cmd.Parameters.AddWithValue("@author", book.Author);
-                    cmd.Parameters.AddWithValue("@isbn", book.ISBN);
-                    cmd.Parameters.AddWithValue("@pages", book.NumberOfPages);
-                    cmd.Parameters.AddWithValue("@status", book.Status);
-                    cmd.Parameters.AddWithValue("@type", book.ResourceType);
-                    cmd.Parameters.AddWithValue("@published", book.PublishedDate);
-
                     conn.Open();
-                    return cmd.ExecuteNonQuery(); // Returns the number of rows actually changed
+                    int totalRowsAffected = 0;
+
+                    string bookQuery = @"UPDATE Books SET 
+                                Title = @title, Author = @author, ISBN = @isbn, 
+                                Pages = @pages, ResourceType = @type, Published = @published
+                                WHERE BookID = @id";
+
+                    SqlCommand bookCmd = new SqlCommand(bookQuery, conn);
+                    bookCmd.Parameters.AddWithValue("@id", book.BookId);
+                    bookCmd.Parameters.AddWithValue("@title", book.BookTitle);
+                    bookCmd.Parameters.AddWithValue("@author", book.Author);
+                    bookCmd.Parameters.AddWithValue("@isbn", book.ISBN);
+                    bookCmd.Parameters.AddWithValue("@pages", book.NumberOfPages);
+                    bookCmd.Parameters.AddWithValue("@type", book.ResourceType);
+                    bookCmd.Parameters.AddWithValue("@published", book.PublishedDate);
+
+                    totalRowsAffected += bookCmd.ExecuteNonQuery();
+
+
+                    string copyQuery = @"UPDATE BookCopies SET Status = @status WHERE BookID = @id";
+
+                    SqlCommand copyCmd = new SqlCommand(copyQuery, conn);
+                    copyCmd.Parameters.AddWithValue("@id", book.BookId);
+                    copyCmd.Parameters.AddWithValue("@status", (object)book.Status ?? "Available");
+
+                    totalRowsAffected += copyCmd.ExecuteNonQuery();
+
+                    return totalRowsAffected;
                 }
             }
             catch (SqlException ex)
@@ -149,6 +177,7 @@ namespace Library_Management_System.Data
 
 
 
+
         // Delete a book by its ID
         public int DeleteBook(int bookId)
         {
@@ -156,21 +185,18 @@ namespace Library_Management_System.Data
             {
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
-                    // SQL query to remove the book based on its ID
-                    string query = "DELETE FROM Books WHERE BookID = @id";
+                    string query = "UPDATE Books SET IsDeleted = 1 WHERE BookID = @id";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@id", bookId);
 
                     conn.Open();
-                    // Returns 1 if deleted, 0 if the ID wasn't found
                     return cmd.ExecuteNonQuery();
                 }
             }
             catch (SqlException)
             {
-                // Handle cases where the book is currently borrowed (Foreign Key conflict)
-                throw new Exception("Cannot delete this book. It may be linked to borrowing records.");
+                return 0;
             }
         }
 
@@ -180,18 +206,21 @@ namespace Library_Management_System.Data
         public Dictionary<string, int> GetBookCountsByType()
         {
             var counts = new Dictionary<string, int>
-            {
+    {
         { "Physical", 0 },
         { "EBook", 0 },
         { "Thesis Book", 0 }
-            };
+    };
 
             try
             {
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
-                    // This query groups books by type and counts them
-                    string query = "SELECT ResourceType, COUNT(*) as Total FROM Books GROUP BY ResourceType";
+                    string query = @"SELECT ResourceType, COUNT(*) as Total 
+                             FROM Books 
+                             WHERE IsDeleted = 0 
+                             GROUP BY ResourceType";
+
                     SqlCommand cmd = new SqlCommand(query, conn);
                     conn.Open();
 
@@ -201,24 +230,29 @@ namespace Library_Management_System.Data
                         {
                             string type = reader["ResourceType"].ToString();
                             int total = Convert.ToInt32(reader["Total"]);
+
                             if (counts.ContainsKey(type)) counts[type] = total;
                         }
                     }
                 }
             }
-            catch (SqlException) { /* Handle or log error */ }
+            catch (SqlException) {  }
 
             return counts;
         }
 
 
 
+        // Get a book by its ID
         public PhysicalBook GetBookById(int bookId)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MyDbConn"].ConnectionString))
             {
-                // Querying for ID, Title, Status, and Type as requested
-                string query = "SELECT BookID, Title, Status, ResourceType FROM Books WHERE BookID = @id";
+                string query = @"SELECT b.BookID, b.Title, b.ResourceType, c.Status, c.CopyID 
+                         FROM Books b 
+                         LEFT JOIN BookCopies c ON b.BookID = c.BookID 
+                         WHERE b.BookID = @id AND b.IsDeleted = 0";
+
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@id", bookId);
 
@@ -231,8 +265,9 @@ namespace Library_Management_System.Data
                         {
                             BookId = (int)reader["BookID"],
                             BookTitle = reader["Title"].ToString(),
-                            Status = reader["Status"].ToString(),
-                            ResourceType = reader["ResourceType"].ToString()
+                            ResourceType = reader["ResourceType"].ToString(),
+                            CopyID = reader["CopyID"].ToString(),
+                            Status = reader["Status"] != DBNull.Value ? reader["Status"].ToString() : "No Copy Registered"
                         };
                     }
                 }

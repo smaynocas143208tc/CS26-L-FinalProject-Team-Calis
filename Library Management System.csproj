@@ -99,17 +99,18 @@
     <Compile Include="ManageMembers.Designer.cs">
       <DependentUpon>ManageMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\BookCopy.cs" />
     <Compile Include="Models\BookResource.cs" />
     <Compile Include="Models\BorrowTransaction.cs" />
     <Compile Include="Data\ICirculationRepository.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="BusinessLogic\MemberManager.cs" />
     <Compile Include="Models\PhysicalBook.cs" />
-    <Compile Include="SearchBooks.cs">
+    <Compile Include="ReturnBooks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchBooks.Designer.cs">
-      <DependentUpon>SearchBooks.cs</DependentUpon>
+    <Compile Include="ReturnBooks.Designer.cs">
+      <DependentUpon>ReturnBooks.cs</DependentUpon>
     </Compile>
     <Compile Include="StaffDashBoared.cs">
       <SubType>Form</SubType>
@@ -149,8 +150,8 @@
     <EmbeddedResource Include="ManageMembers.resx">
       <DependentUpon>ManageMembers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchBooks.resx">
-      <DependentUpon>SearchBooks.cs</DependentUpon>
+    <EmbeddedResource Include="ReturnBooks.resx">
+      <DependentUpon>ReturnBooks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffDashBoared.resx">
       <DependentUpon>StaffDashBoared.cs</DependentUpon>

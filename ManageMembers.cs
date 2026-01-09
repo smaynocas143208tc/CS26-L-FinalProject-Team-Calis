@@ -48,11 +48,24 @@ namespace Library_Management_System
 
 
             }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627 || ex.Number == 2601)
+                {
+                    MessageBox.Show("Member already exists! The Email or Username is already in use.",
+                                    "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("A database error occurred: " + ex.Message);
+                }
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("An unexpected error occurred: " + ex.Message);
             }
         }
+
 
 
 
@@ -79,6 +92,7 @@ namespace Library_Management_System
             RefreshID();
 
         }
+
 
 
 
@@ -125,6 +139,7 @@ namespace Library_Management_System
 
 
 
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -149,7 +164,6 @@ namespace Library_Management_System
                 };
 
                 // 3. Hash the text from the password box
-                // Use the same hashing method you used during Registration
                 string hashedPass = BCrypt.Net.BCrypt.HashPassword(txtPass.Text);
 
                 // 4. Send to Manager
@@ -163,6 +177,8 @@ namespace Library_Management_System
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+
 
 
 
@@ -185,15 +201,15 @@ namespace Library_Management_System
                 {
                     int id = int.Parse(txtMemberID.Text);
 
-                    // 3. Call the manager to delete
+      
                     memberManager.RemoveMember(id);
 
                     MessageBox.Show("Member removed successfully.");
 
-                    // 4. Clean up the UI
-                    LoadMemberData(); // Refresh the grid
-                    ClearFields();    // Empty the textboxes
-                    RefreshID();  // Update the ID for the next registration
+   
+                    LoadMemberData(); 
+                    ClearFields();    
+                    RefreshID();  
                 }
                 catch (Exception ex)
                 {

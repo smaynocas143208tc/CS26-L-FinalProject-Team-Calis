@@ -44,7 +44,6 @@ namespace Library_Management_System
                 PublishedDate = string.IsNullOrWhiteSpace(txtPublished.Text) ? "Unknown" : txtPublished.Text,
                 Author = string.IsNullOrWhiteSpace(txtAuthor.Text) ? "Unknown" : txtAuthor.Text,
                 NumberOfPages = string.IsNullOrWhiteSpace(txtPages.Text) ? 0 : int.Parse(txtPages.Text),
-                Status = cmbStatus.SelectedItem?.ToString() ?? "Available"
             };
 
             bool isSuccess = _catalog.AddBook(book);
@@ -80,10 +79,8 @@ namespace Library_Management_System
         // Search Books
         private void btnMemberSearch_Click(object sender, EventArgs e)
         {
-            // 1. Get the text from the TEXTBOX, not the button
             string searchInput = txtSearchBook.Text;
 
-            // 2. Check the variable 'searchInput'
             if (string.IsNullOrWhiteSpace(searchInput))
             {
                 dgvSearchResults.Visible = false;
@@ -92,22 +89,32 @@ namespace Library_Management_System
                 return;
             }
 
-            // 3. Pass 'searchInput' to your catalog manager
+   
             var results = _catalog.SearchBooks(searchInput);
 
-            if (results.Count > 1)
+            if (results.Count > 0)
             {
-                dgvSearchResults.DataSource = results;
-                dgvSearchResults.Visible = true;
-                btnCloseSearch.Visible = true;
-                dgvSearchResults.BringToFront();
-                btnCloseSearch.BringToFront();
-            }
-            else if (results.Count == 1)
-            {
-                dgvSearchResults.Visible = false;
-                btnCloseSearch.Visible = false;
-                DisplayBookDetails(results[0]);
+                if (results.Count > 1)
+                {
+                    dgvSearchResults.DataSource = results;
+
+   
+                    if (dgvSearchResults.Columns["IsDeleted"] != null)
+                    {
+                        dgvSearchResults.Columns["IsDeleted"].Visible = false;
+                    }
+
+                    dgvSearchResults.Visible = true;
+                    btnCloseSearch.Visible = true;
+                    dgvSearchResults.BringToFront();
+                    btnCloseSearch.BringToFront();
+                }
+                else 
+                {
+                    dgvSearchResults.Visible = false;
+                    btnCloseSearch.Visible = false;
+                    DisplayBookDetails(results[0]); 
+                }
             }
             else
             {
@@ -116,6 +123,7 @@ namespace Library_Management_System
                 MessageBox.Show("No books found matching your search.");
             }
         }
+
 
 
 
@@ -140,7 +148,7 @@ namespace Library_Management_System
                 Author = txtAuthor.Text,
                 ISBN = txtISBN.Text,
                 NumberOfPages = int.Parse(txtPages.Text),
-                Status = cmbStatus.SelectedItem?.ToString(),
+                Status = cmbStatus.SelectedItem?.ToString() ?? "Available",
                 ResourceType = cmbType.SelectedItem?.ToString(),
                 PublishedDate = txtPublished.Text
             };
@@ -173,12 +181,6 @@ namespace Library_Management_System
 
 
 
-
-
-
-
-
-
         private void btnRemove_Click(object sender, EventArgs e)
         {
             // 1. Validation: Ensure an ID is present
@@ -188,29 +190,33 @@ namespace Library_Management_System
                 return;
             }
 
-            int idToRemove = int.Parse(txtBookID.Text);
+            if (!int.TryParse(txtBookID.Text, out int idToRemove))
+            {
+                MessageBox.Show("Invalid Book ID format.");
+                return;
+            }
 
-            // 2. Confirmation Dialog
-            DialogResult confirm = MessageBox.Show($"Are you sure you want to delete Book ID {idToRemove}?",
-                "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult confirm = MessageBox.Show($"Are you sure you want to remove Book ID {idToRemove}?\n\nNote: This will hide the book from the catalog but preserve its borrowing history.",
+                "Confirm Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (confirm == DialogResult.Yes)
             {
                 try
                 {
-                    // 3. Execute Deletion
-                    int rowsAffected = _catalog.RemoveBook(idToRemove);
+                    // 3. Execute Soft Delete
+                    // We changed this to call DeleteBook to match the IBookRepository interface
+                    int rowsAffected = _catalog.DeleteBook(idToRemove);
 
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Book removed successfully!");
-                        ClearFields(); 
+                        ClearFields();
                         RefreshNextId();
-                        RefreshStatistics();
+                        RefreshStatistics(); 
                     }
                     else
                     {
-                        MessageBox.Show("Book ID not found in the database.");
+                        MessageBox.Show("Book ID not found or already removed.");
                     }
                 }
                 catch (Exception ex)
@@ -279,10 +285,9 @@ namespace Library_Management_System
         private void RefreshStatistics()
         {
             var stats = _catalog.GetBookCountsByType();
-
-            lblPhysicalBooks.Text = stats["Physical"].ToString();
-            lblEbook.Text = stats["EBook"].ToString();
-            lblThesesBook.Text = stats["Thesis Book"].ToString();
+            lblPhysicalBooks.Text = (stats.ContainsKey("Physical") ? stats["Physical"] : 0).ToString();
+            lblEbook.Text = (stats.ContainsKey("EBook") ? stats["EBook"] : 0).ToString();
+            lblThesesBook.Text = (stats.ContainsKey("Thesis Book") ? stats["Thesis Book"] : 0).ToString();
         }
 
 
@@ -313,6 +318,8 @@ namespace Library_Management_System
 
         private void DisplayBookDetails(PhysicalBook book)
         {
+            if (book == null) return;
+
             txtBookID.Text = book.BookId.ToString();
             txtTitle.Text = book.BookTitle;
             txtAuthor.Text = book.Author;
@@ -321,6 +328,15 @@ namespace Library_Management_System
             txtPublished.Text = book.PublishedDate;
             cmbStatus.SelectedItem = book.Status;
             cmbType.SelectedItem = book.ResourceType;
+
+            if (book.Status == "Borrowed")
+            {
+                txtTitle.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtTitle.ForeColor = System.Drawing.Color.Black;
+            }
         }
 
 

@@ -39,7 +39,7 @@ namespace Library_Management_System.Data
 
 
         // Role-Based Login Verification
-        /* public Member verifyLogin(string username, string plainPassword)
+         public Member verifyLogin(string username, string plainPassword)
          {
              using (SqlConnection conn = new SqlConnection(connString))
              {
@@ -69,7 +69,7 @@ namespace Library_Management_System.Data
                  }
              }
              return null;
-         } */
+         } 
 
 
 
@@ -144,7 +144,7 @@ namespace Library_Management_System.Data
 
                     if (reader.Read())
                     {
-                        // Create a member object and fill it with data from the database
+             
                         return new Member
                         {
                             MemberID = Convert.ToInt32(reader["MemberID"]),
@@ -171,7 +171,7 @@ namespace Library_Management_System.Data
         // +UpdateMember()
         public void UpdateMember(Member m, string newHashedPassword)
         {
-            // We add Password = @Pass to the SET clause
+          
             string query = @"UPDATE Members 
                      SET UserName = @User, 
                          Name = @Name, 

@@ -98,7 +98,7 @@ namespace Library_Management_System
         private void button3_Click(object sender, EventArgs e)
         {
             //Para mo show ang search books na panel sa pag click sa search book button
-            AbrirFormEnPanel(new SearchBooks());
+            AbrirFormEnPanel(new ReturnBooks());
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -139,6 +139,11 @@ namespace Library_Management_System
         private void button11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new ReturnBooks());
         }
     }
 

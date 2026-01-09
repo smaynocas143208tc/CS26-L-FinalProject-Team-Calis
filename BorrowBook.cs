@@ -15,7 +15,7 @@ namespace Library_Management_System
 {
     public partial class BorrowBook : Form
     {
-
+        private string _selectedCopyId;
         private readonly CatalogManager _catalogManager;
         private readonly MemberManager _memberManager;
 
@@ -36,33 +36,30 @@ namespace Library_Management_System
 
         private void btnBorrow_Click(object sender, EventArgs e)
         {
-            // 1. Basic Validation
-            if (string.IsNullOrWhiteSpace(txtMemberID.Text) || string.IsNullOrWhiteSpace(txtBookID.Text))
+            // Extra safety check: Make sure we have a CopyID
+            if (string.IsNullOrEmpty(_selectedCopyId))
             {
-                MessageBox.Show("Please enter both Member ID and Book ID.");
+                MessageBox.Show("Please 'Check' the book again to confirm availability.");
                 return;
             }
 
             try
             {
-                // 2. Setup the Architecture (Dependency Injection)    
                 ICirculationRepository repo = new SqlCirculationRepository();
-
-                // Inject the repository into the Manager
                 CirculationManager circulationManager = new CirculationManager(repo);
 
-                // 3. Collect Data from UI
                 int memberId = int.Parse(txtMemberID.Text);
                 int bookId = int.Parse(txtBookID.Text);
                 DateTime dueDate = dtpDueDate.Value;
 
-                // 4. Execute the Borrowing Logic
-                bool isSuccess = circulationManager.BorrowBook(memberId, bookId, dueDate);
+              
+                bool isSuccess = circulationManager.BorrowBook(memberId, bookId, _selectedCopyId, dueDate);
 
                 if (isSuccess)
                 {
                     MessageBox.Show("Book borrowed successfully!");
-                    ClearBorrowFields(); 
+                    _selectedCopyId = null; 
+                    ClearBorrowFields();
                 }
                 else
                 {
@@ -80,8 +77,6 @@ namespace Library_Management_System
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-     
-            // 1. Validation: Ensure both IDs are entered
             if (string.IsNullOrWhiteSpace(txtMemberID.Text) || string.IsNullOrWhiteSpace(txtBookID.Text))
             {
                 MessageBox.Show("Please enter both Member ID and Book ID to verify.");
@@ -93,7 +88,7 @@ namespace Library_Management_System
                 int memberId = int.Parse(txtMemberID.Text);
                 int bookId = int.Parse(txtBookID.Text);
 
-                // 2. Fetch Member Info
+                // 2. Verify Member
                 var member = _memberManager.VerifyMember(memberId);
                 bool memberValid = false;
 
@@ -115,11 +110,13 @@ namespace Library_Management_System
 
                 if (book != null)
                 {
+
+                    _selectedCopyId = book.CopyID;
+
                     txtBookTitle.Text = book.BookTitle;
                     txtBookType.Text = book.ResourceType;
                     txtStatus.Text = book.Status;
 
-                    // Business Rule: Only allow 'Available' status
                     if (book.Status == "Available")
                     {
                         txtStatus.ForeColor = Color.Green;
@@ -133,12 +130,12 @@ namespace Library_Management_System
                 }
                 else
                 {
-                    lblBookTitle.Text = "Book Not Found";
+                    txtBookTitle.Text = "Book Not Found";
                     txtStatus.Text = "-";
                     txtBookType.Text = "-";
+                    _selectedCopyId = null;
                 }
 
-                // 4. Enable Borrow Button only if both are valid
                 btnBorrow.Enabled = (memberValid && bookValid);
             }
             catch (FormatException)
